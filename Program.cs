@@ -6,7 +6,8 @@ namespace AlgoPractice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BstConstruction myBst = new BstConstruction(17);
+            myBst.PrintNum();
         }
     }
 }
