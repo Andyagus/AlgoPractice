@@ -9,12 +9,14 @@ namespace AlgoPractice
             BstConstruction myBst = new BstConstruction(10);
             myBst.Insert(5);
             myBst.Insert(15);
-            myBst.Insert(2);
-            myBst.Insert(5);
-            myBst.Insert(1);
-            myBst.Insert(13);
-            myBst.Insert(22);
-            myBst.Insert(14);
+            //myBst.Insert(2);
+            //myBst.Insert(5);
+            //myBst.Insert(1);
+            //myBst.Insert(13);
+            //myBst.Insert(22);
+            //myBst.Insert(14);
+            Console.Write(myBst.Contains(7));
+
         }
     }
 }

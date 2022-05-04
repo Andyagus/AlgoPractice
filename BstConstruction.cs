@@ -12,7 +12,7 @@ namespace AlgoPractice
             this.value = value; 
         }
 
-        public void Insert(int value)
+        public BstConstruction Insert(int value)
         {
             var currentNode = this;
 
@@ -43,6 +43,33 @@ namespace AlgoPractice
                     }
                 }
             }
+            return this;
+        }
+
+        public bool Contains(int value)
+        {
+            var currentNode = this;
+            while (true)
+            {
+                if(value == currentNode.value)
+                {
+                    return true;
+                }
+                else if(value < currentNode.value)                   
+                {
+                    currentNode = currentNode.left;
+                }
+                else if(value > currentNode.value)
+                {
+                    currentNode = currentNode.right;
+                }
+                else if(currentNode.left == null || currentNode.right == null)
+                {
+                    Console.Write("NO MATCH");
+                    return false;
+                }
+            }
         }
     }
+
 }
