@@ -3,16 +3,46 @@ namespace AlgoPractice
 {
     public class BstConstruction
     {
-        public int myNum;
+        public int value;
+        public BstConstruction left;
+        public BstConstruction right;
 
-        public BstConstruction(int myNum)
+        public BstConstruction(int value)
         {
-            this.myNum = myNum;
+            this.value = value; 
         }
 
-        public void PrintNum()
+        public void Insert(int value)
         {
-            Console.WriteLine("my number is: " + myNum);
+            var currentNode = this;
+
+            while (true)
+            {
+                if (value < currentNode.value)
+                {
+                    if (currentNode.left == null)
+                    {
+                        currentNode.left = new BstConstruction(value);
+                        break;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.left;
+                    }
+                }
+                else
+                {
+                    if(currentNode.right == null)
+                    {
+                        currentNode.right = new BstConstruction(value);
+                        break;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.right;
+                    }
+                }
+            }
         }
     }
 }
