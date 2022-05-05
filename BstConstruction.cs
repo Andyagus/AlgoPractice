@@ -51,18 +51,18 @@ namespace AlgoPractice
             var currentNode = this;
             while (currentNode != null)
             {
-                if(value == currentNode.value)
-                {
-                    return true;
-                }
-                else if(value < currentNode.value)                   
+                if(value < currentNode.value)                   
                 {
                     currentNode = currentNode.left;
                 }
                 else if(value > currentNode.value)
                 {
                     currentNode = currentNode.right;
-                }                
+                }
+                else
+                {
+                    return true;
+                }
             }
             return false;            
         }
