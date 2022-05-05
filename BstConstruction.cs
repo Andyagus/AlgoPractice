@@ -49,7 +49,7 @@ namespace AlgoPractice
         public bool Contains(int value)
         {
             var currentNode = this;
-            while (true)
+            while (currentNode != null)
             {
                 if(value == currentNode.value)
                 {
@@ -62,13 +62,9 @@ namespace AlgoPractice
                 else if(value > currentNode.value)
                 {
                     currentNode = currentNode.right;
-                }
-                else if(currentNode.left == null || currentNode.right == null)
-                {
-                    Console.Write("NO MATCH");
-                    return false;
-                }
+                }                
             }
+            return false;            
         }
     }
 
