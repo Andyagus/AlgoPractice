@@ -66,6 +66,30 @@ namespace AlgoPractice
             }
             return false;            
         }
+
+        public void FindClosestValue(int value)
+        {
+            var currentNode = this;
+
+            while(true)
+            {
+                if(currentNode.left == null || currentNode.right == null)
+                {
+                    Console.Write(currentNode.value);
+                    return;
+                }
+
+                if(value > currentNode.value)
+                {
+                    currentNode = currentNode.right;
+                }
+                else if(value < currentNode.value)
+                {
+                    currentNode = currentNode.left;
+                }
+               
+            }
+        }
     }
 
 }
