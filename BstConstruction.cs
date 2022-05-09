@@ -67,29 +67,45 @@ namespace AlgoPractice
             return false;            
         }
 
-        public void FindClosestValue(int value)
+        public int FindClosestValue(int value)
         {
             var currentNode = this;
 
-            while(true)
-            {
-                if(currentNode.left == null || currentNode.right == null)
-                {
-                    Console.Write(currentNode.value);
-                    return;
-                }
+            int difference;
+            int closestValueToTarget = currentNode.value;
 
-                if(value > currentNode.value)
+            while (currentNode != null)
+            {
+                if (value >= currentNode.value)
                 {
+                    difference = AbsDif(value, currentNode.value);
+                    if (difference < AbsDif(closestValueToTarget, value))
+                    {
+                        closestValueToTarget = currentNode.value;
+                    }
                     currentNode = currentNode.right;
                 }
-                else if(value < currentNode.value)
+                else if (value < currentNode.value)
                 {
+                    difference = AbsDif(value, currentNode.value);
+                    if (difference <= AbsDif(closestValueToTarget, value))
+                    {
+                        closestValueToTarget = currentNode.value;
+                    }
                     currentNode = currentNode.left;
                 }
-               
+
             }
+            return closestValueToTarget;
         }
+
+        public static int AbsDif(int target, int node)
+        {
+            var value = Math.Abs(target - node);
+            return value;
+        }
+
     }
+}
 
 }
