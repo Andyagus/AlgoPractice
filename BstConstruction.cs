@@ -67,6 +67,8 @@ namespace AlgoPractice
             return false;            
         }
 
+
+        //itterative 
         public int FindClosestValue(int value)
         {
             var currentNode = this;
@@ -105,7 +107,40 @@ namespace AlgoPractice
             return value;
         }
 
+        //Recursive
+        public int FindClosestValueInBst(BstConstruction tree, int target)
+        {
+            return findClosestValueInBstHelper(tree, target, 1000000);
+        }
+
+        public int findClosestValueInBstHelper(BstConstruction tree, int target, int closest)
+        {
+
+            if (Math.Abs(target - tree.value) < Math.Abs(target - closest))
+            {
+                closest = tree.value;
+            }
+            if (target > tree.value && tree.right != null)
+            {
+                Console.Write(tree.right.value);
+                return findClosestValueInBstHelper(tree.right, target, closest);
+            }
+            else if (target < tree.value && tree.left != null)
+            {
+                Console.Write(tree.left.value);
+                return findClosestValueInBstHelper(tree.left, target, closest);
+            }
+            else
+            {
+                return closest;
+            }
+        }
+
     }
-}
+
+    
+
 
 }
+
+
